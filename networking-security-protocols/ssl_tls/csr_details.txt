@@ -1,0 +1,21 @@
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+req_extensions = req_ext
+distinguished_name = dn
+
+[ dn ]
+C=SG
+L=SINGAPORE
+ST=SINGAPORE
+O=COMPANY AGENCY
+OU=ORGANIZATIONAL UNIT
+CN=www.example.com
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = www.example.com
+
