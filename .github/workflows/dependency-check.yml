@@ -11,11 +11,14 @@ jobs:
 
     steps:
     - name: Run OWASP Dependency-Check
+      id: owasp-check
       run: |
         curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.2/dependency-check-8.4.2-release.zip
         unzip dependency-check-8.4.2-release.zip
         chmod +x dependency-check/bin/dependency-check.sh
-        ./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan DevOpsRoadmap/vcs-hosting/ --out /tmp --format ALL
+        # Run Dependency-Check and capture the JSON output
+        dependency-check_report=$(./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan . --out /tmp --format JSON)
+        echo "::set-output name=dependency-check-report::$dependency-check_report"
       env:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
         MVNW_HOME: ./mvnw
