@@ -2,6 +2,7 @@
 
 import requests
 from datetime import datetime
+from urllib.parse import urlparse
 
 def monitor_https(url):
   """Monitors a website's HTTPS configuration."""
