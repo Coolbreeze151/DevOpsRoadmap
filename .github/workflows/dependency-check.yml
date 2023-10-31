@@ -36,9 +36,8 @@ jobs:
 
     - name: Commit JSON Report
       run: |
-        git config user.email "your-email@example.com"
-        git config user.name "Your Name"
-        mkdir -p github-actions
+        git config user.email "ismahfaris@gmail.com"
+        git config user.name "Coolbreeze151"
         mv dependency-check-report.json github-actions/
         git add github-actions/
         git commit -m "Add Dependency-Check JSON report"
