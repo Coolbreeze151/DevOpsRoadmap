@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '30 12 * * *' # Schedule for daily run at midnight
+    - cron: '40 12 * * *' # Schedule for daily run at midnight
 
 jobs:
   owasp-dependency-check:
@@ -17,6 +17,7 @@ jobs:
 
     - name: Run OWASP Dependency-Check
       id: owasp-check
+      if: github.event.schedule != '40 12 * * *'
       run: |
         curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.2/dependency-check-8.4.2-release.zip
         unzip dependency-check-8.4.2-release.zip
@@ -35,6 +36,7 @@ jobs:
         path: ${{ github.workspace }}/dependency-check-report.json
 
     - name: Commit JSON Report
+      if: github.event.schedule != '40 12 * * *'
       run: |
         git config user.email "ismahfaris@gmail.com"
         git config user.name "Coolbreeze151"
