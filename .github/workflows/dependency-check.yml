@@ -4,12 +4,17 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 12 * * *' # Schedule for daily run at midnight
 
 jobs:
   owasp-dependency-check:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
     - name: Run OWASP Dependency-Check
       id: owasp-check
       run: |
@@ -24,7 +29,19 @@ jobs:
         MVNW_HOME: ./mvnw
 
     - name: Upload Dependency-Check Report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: dependency-check-report
         path: ${{ github.workspace }}/dependency-check-report.json
+
+    - name: Commit JSON Report
+      run: |
+        git config user.email "your-email@example.com"
+        git config user.name "Your Name"
+        mkdir -p github-actions
+        mv dependency-check-report.json github-actions/
+        git add github-actions/
+        git commit -m "Add Dependency-Check JSON report"
+        git push
+      working-directory: ${{ github.workspace }}
+
