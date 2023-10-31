@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '56 4 * * *' # Schedule for daily run at midnight
+    - cron: '20 5 * * *' # Schedule for daily run at midnight
 
 jobs:
   owasp-dependency-check:
@@ -43,7 +43,7 @@ jobs:
       run: |
         git config user.email "ismahfaris@gmail.com"
         git config user.name "Coolbreeze151"
-        mv dependency-check-report.json github-actions/
+        mv -f dependency-check-report.zip github-actions/
         git add github-actions/
         git commit -m "Add Dependency-Check JSON report"
         git push origin HEAD:main
