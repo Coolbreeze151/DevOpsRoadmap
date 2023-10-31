@@ -2,6 +2,7 @@
 
 import socket
 import ssl
+import datetime
 
 def check_ssl_certificate(hostname):
   """Checks the validity of an SSL certificate."""
