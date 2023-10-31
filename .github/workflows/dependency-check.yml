@@ -15,7 +15,7 @@ jobs:
         curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.2/dependency-check-8.4.2-release.zip
         unzip dependency-check-8.4.2-release.zip
         chmod +x dependency-check/bin/dependency-check.sh
-        ./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan /vcs-hosting/ --out /tmp --format ALL
+        ./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan . --out /tmp --format ALL
       env:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
         MVNW_HOME: ./mvnw
