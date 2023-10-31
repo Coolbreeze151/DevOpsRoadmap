@@ -10,15 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'  # Specify the Java version you want to use
-        distribution: 'adopt'  # Specify the distribution (e.g., 'adopt', 'adopt-lts', 'corretto', 'zulu', etc.)
-
     - name: Run OWASP Dependency-Check
       run: |
         curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.2/dependency-check-8.4.2-release.zip
