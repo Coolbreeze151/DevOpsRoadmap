@@ -32,7 +32,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: dependency-check-report
-        path: ${{ github.workspace }}/dependency-check-report.json
+        path: ${{ github.workspace }}/github-actions/dependency-check-report.json
 
     - name: Checkout Repository with Token
       uses: actions/checkout@v4
@@ -43,7 +43,7 @@ jobs:
       run: |
         git config user.email "ismahfaris@gmail.com"
         git config user.name "Coolbreeze151"
-        git add ${{ github.workspace }}/github-actions/
+        git add ${{ github.workspace }}/github-actions/dependency-check-report.json
         git commit -m "Add Dependency-Check JSON report"
         git push origin HEAD:main
 
