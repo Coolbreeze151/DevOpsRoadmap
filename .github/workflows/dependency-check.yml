@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 12 * * *' # Schedule for daily run at midnight
+    - cron: '10 12 * * *' # Schedule for daily run at midnight
 
 jobs:
   owasp-dependency-check:
@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Check out code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Run OWASP Dependency-Check
       id: owasp-check
@@ -33,14 +33,5 @@ jobs:
       with:
         name: dependency-check-report
         path: ${{ github.workspace }}/dependency-check-report.json
-
-    - name: Commit JSON Report
-      run: |
-        git config user.email "ismahfaris@gmail.com"
-        git config user.name "Coolbreeze151"
-        mv dependency-check-report.json github-actions/
-        git add github-actions/
-        git commit -m "Add Dependency-Check JSON report"
-        git push
       working-directory: ${{ github.workspace }}
 
