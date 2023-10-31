@@ -43,7 +43,7 @@ jobs:
       run: |
         git config user.email "ismahfaris@gmail.com"
         git config user.name "Coolbreeze151"
-        mv -f dependency-check-report.zip github-actions/
+        mv -f $GITHUB_WORKSPACE/dependency-check-report.json $GITHUB_WORKSPACE/github-actions/dependency-check-report.json
         git add github-actions/
         git commit -m "Add Dependency-Check JSON report"
         git push origin HEAD:main
