@@ -18,11 +18,15 @@ jobs:
     - name: Run OWASP Dependency-Check
       id: owasp-check
       run: |
-        curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.1/dependency-check-8.4.1-release.zip
-        unzip dependency-check-8.4.1-release.zip
+        # Download and set up Dependency-Check 8.4.0
+        curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.0/dependency-check-8.4.0-release.zip
+        unzip dependency-check-8.4.0-release.zip
         chmod +x dependency-check/bin/dependency-check.sh
+
         # Run Dependency-Check and capture the JSON output to a file
         ./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan . --out /tmp --format JSON
+
+        # Move the JSON report to the 'github-actions' folder
         mv -f /tmp/dependency-check-report.json ${{ github.workspace }}/github-actions/dependency-check-report.json
       env:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
