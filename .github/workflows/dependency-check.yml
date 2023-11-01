@@ -14,6 +14,17 @@ jobs:
       with:
         token: ${{ secrets.GH_PAT }} 
 
+    - name: Create SUCCESS.txt
+      run: echo "SUCCESS" >> ${{ github.workspace }}/github-actions/SUCCESS.txt
+
+    - name: Commit SUCCESS Status
+      run: |
+        git config user.email ${{ secrets.GIT_USER_EMAIL }}
+        git config user.name "Coolbreeze151"
+        git add ${{ github.workspace }}/github-actions/SUCCESS.txt
+        git commit -m "Add Dependency-Check JSON report"
+        git push origin HEAD:main
+
     - name: Run OWASP Dependency-Check
       id: owasp-check
       run: |
@@ -30,18 +41,7 @@ jobs:
       env:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
         MVNW_HOME: ./mvnw
-
-    - name: Create SUCCESS.txt
-      run: echo "SUCCESS" >> ${{ github.workspace }}/github-actions/SUCCESS.txt
-
-    - name: Commit SUCCESS Status
-      run: |
-        git config user.email ${{ secrets.GIT_USER_EMAIL }}
-        git config user.name "Coolbreeze151"
-        git add ${{ github.workspace }}/github-actions/SUCCESS.txt
-        git commit -m "Add Dependency-Check JSON report"
-        git push origin HEAD:main
-
+        
     - name: Upload Dependency-Check Report
       uses: actions/upload-artifact@v3
       with:
