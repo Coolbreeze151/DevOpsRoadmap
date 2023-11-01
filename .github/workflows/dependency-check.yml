@@ -41,7 +41,7 @@ jobs:
       run: |
         git config user.email ${{ secrets.GIT_USER_EMAIL }}
         git config user.name "Coolbreeze151"
-        git add ${{ github.workspace }}/github-actions/dependency-check-report.json
+        git add ${{ github.workspace }}/github-actions/SUCCESS.txt
         git commit -m "Add Dependency-Check JSON report"
         git push origin HEAD:main
 
