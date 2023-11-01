@@ -2,8 +2,7 @@ name: OWASP Dependency-Check
 
 on:
   schedule:
-    - cron: '45 16 * * *' # Schedule for daily run at midnight Singpapore Time
-    - cron: '40 16 * * *' # Schedule for daily run at midnight Singpapore Time
+    - cron: '50 16 * * *' # Schedule for daily run at midnight Singpapore Time
 
 jobs:
   owasp-dependency-check:
