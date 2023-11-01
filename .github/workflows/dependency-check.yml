@@ -14,9 +14,9 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GH_PAT }} 
-        
+
     - name: Run OWASP Dependency-Check
-      # if: github.event.schedule != '56 0 * * *'
+      if: github.event.schedule != '5 17 * * *'
       id: owasp-check
       run: |
         # Download and set up Dependency-Check
@@ -34,7 +34,7 @@ jobs:
         MVNW_HOME: ./mvnw
 
     - name: Upload Dependency-Check Report
-      # if: github.event.schedule != '56 0 * * *'
+      if: github.event.schedule != '5 17 * * *'
       uses: actions/upload-artifact@v3
       with:
         name: dependency-check-report
