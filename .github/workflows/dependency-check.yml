@@ -2,8 +2,8 @@ name: OWASP Dependency-Check
 
 on:
   schedule:
-    - cron: '31 16 * * *' # Schedule for daily run at midnight Singpapore Time
-    - cron: '32 16 * * *' # Schedule for daily run at midnight Singpapore Time
+    - cron: '35 16 * * *' # Schedule for daily run at midnight Singpapore Time
+    - cron: '36 16 * * *' # Schedule for daily run at midnight Singpapore Time
 
 jobs:
   owasp-dependency-check:
@@ -34,6 +34,8 @@ jobs:
         path: ${{ github.workspace }}/github-actions/dependency-check-report.json
   
   commit-success:
+    runs-on: ubuntu-latest
+    steps:
     - name: Checkout Repository with Token
       uses: actions/checkout@v4
       with:
