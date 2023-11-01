@@ -21,18 +21,14 @@ jobs:
         curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.2/dependency-check-8.4.2-release.zip
         unzip dependency-check-8.4.2-release.zip
         chmod +x dependency-check/bin/dependency-check.sh
+        # Purge existing Dependency-Check data
+        ./dependency-check/bin/dependency-check.sh --purge
         # Run Dependency-Check and capture the JSON output to a file
         ./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan . --out /tmp --format JSON
         mv -f /tmp/dependency-check-report.json ${{ github.workspace }}/github-actions/dependency-check-report.json
       env:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
         MVNW_HOME: ./mvnw
-
-    - name: Upload Dependency-Check Report
-      uses: actions/upload-artifact@v3
-      with:
-        name: dependency-check-report
-        path: ${{ github.workspace }}/github-actions/dependency-check-report.json
 
     - name: Checkout Repository with Token
       uses: actions/checkout@v4
@@ -46,6 +42,12 @@ jobs:
         git add ${{ github.workspace }}/github-actions/dependency-check-report.json
         git commit -m "Add Dependency-Check JSON report"
         git push origin HEAD:main
+
+    - name: Upload Dependency-Check Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: dependency-check-report
+        path: ${{ github.workspace }}/github-actions/dependency-check-report.json
 
       working-directory: ${{ github.workspace }}
 
