@@ -2,12 +2,40 @@ name: OWASP Dependency-Check
 
 on:
   schedule:
-    - cron: '0 16 * * *' # Schedule for daily run at midnight Singpapore Time
+    - cron: '50 16 * * *' # Schedule for daily run at midnight Singpapore Time
 
 jobs:
   owasp-dependency-check:
     runs-on: ubuntu-latest
 
+    steps:
+    - name: Run OWASP Dependency-Check
+      if: github.event.schedule != '40 16 * * *'
+      id: owasp-check
+      run: |
+        # Download and set up Dependency-Check
+        curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v7.3.0/dependency-check-7.3.0-release.zip
+        unzip dependency-check-7.3.0-release.zip
+        chmod +x dependency-check/bin/dependency-check.sh
+
+        # Run Dependency-Check and capture the JSON output to a file
+        ./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan . --out /tmp --format JSON
+
+        # Move the JSON report to the 'github-actions' folder
+        mv -f /tmp/dependency-check-report.json ${{ github.workspace }}/github-actions/dependency-check-report.json
+      env:
+        MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
+        MVNW_HOME: ./mvnw
+
+    - name: Upload Dependency-Check Report
+      if: github.event.schedule != '40 16 * * *'
+      uses: actions/upload-artifact@v3
+      with:
+        name: dependency-check-report
+        path: ${{ github.workspace }}/github-actions/dependency-check-report.json
+  
+  commit-success:
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository with Token
       uses: actions/checkout@v4
@@ -24,28 +52,4 @@ jobs:
         git add ${{ github.workspace }}/github-actions/SUCCESS.txt
         git commit -m "Add Dependency-Check JSON report"
         git push origin HEAD:main
-
-    - name: Run OWASP Dependency-Check
-      id: owasp-check
-      run: |
-        # Download and set up Dependency-Check
-        curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v7.3.0/dependency-check-7.3.0-release.zip
-        unzip dependency-check-7.3.0-release.zip
-        chmod +x dependency-check/bin/dependency-check.sh
-
-        # Run Dependency-Check and capture the JSON output to a file
-        # ./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan . --out /tmp --format JSON
-
-        # Move the JSON report to the 'github-actions' folder
-        mv -f /tmp/dependency-check-report.json ${{ github.workspace }}/github-actions/dependency-check-report.json
-      env:
-        MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
-        MVNW_HOME: ./mvnw
-        
-    - name: Upload Dependency-Check Report
-      uses: actions/upload-artifact@v3
-      with:
-        name: dependency-check-report
-        path: ${{ github.workspace }}/github-actions/dependency-check-report.json
-
 
