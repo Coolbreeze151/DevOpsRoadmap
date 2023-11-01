@@ -35,7 +35,7 @@ jobs:
         MVNW_HOME: ./mvnw
 
     - name: Create SUCCESS.txt
-      run: echo "Commit date: $(date)" > ${{ github.workspace }}/github-actions/SUCCESS.txt
+      run: echo "SUCCESS" >> ${{ github.workspace }}/github-actions/SUCCESS.txt
 
     - name: Commit JSON Report
       run: |
