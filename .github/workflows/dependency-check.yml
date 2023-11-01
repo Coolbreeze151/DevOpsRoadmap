@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '20 5 * * *' # Schedule for daily run at midnight
+    - cron: '0 16 * * * # Schedule for daily run at midnight Singpapore Time
 
 jobs:
   owasp-dependency-check:
