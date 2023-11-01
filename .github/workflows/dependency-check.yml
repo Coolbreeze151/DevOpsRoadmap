@@ -2,7 +2,8 @@ name: OWASP Dependency-Check
 
 on:
   schedule:
-    - cron: '50 16 * * *' # Schedule for daily run at midnight Singpapore Time
+    - cron: '55 0 * * *' # Schedule for daily run at midnight Singpapore Time
+    - cron: '56 0 * * *' # Schedule for daily run at midnight Singpapore Time
 
 jobs:
   owasp-dependency-check:
@@ -10,7 +11,7 @@ jobs:
 
     steps:
     - name: Run OWASP Dependency-Check
-      if: github.event.schedule != '40 16 * * *'
+      # if: github.event.schedule != '56 0 * * *'
       id: owasp-check
       run: |
         # Download and set up Dependency-Check
@@ -28,7 +29,7 @@ jobs:
         MVNW_HOME: ./mvnw
 
     - name: Upload Dependency-Check Report
-      if: github.event.schedule != '40 16 * * *'
+      # if: github.event.schedule != '56 0 * * *'
       uses: actions/upload-artifact@v3
       with:
         name: dependency-check-report
