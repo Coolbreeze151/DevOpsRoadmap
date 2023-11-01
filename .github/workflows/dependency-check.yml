@@ -1,9 +1,6 @@
 name: OWASP Dependency-Check
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: '0 16 * * * # Schedule for daily run at midnight Singpapore Time
 
