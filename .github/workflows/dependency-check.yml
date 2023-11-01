@@ -34,7 +34,7 @@ jobs:
     - name: Create SUCCESS.txt
       run: echo "SUCCESS" >> ${{ github.workspace }}/github-actions/SUCCESS.txt
 
-    - name: Commit JSON Report
+    - name: Commit SUCCESS Status
       run: |
         git config user.email ${{ secrets.GIT_USER_EMAIL }}
         git config user.name "Coolbreeze151"
