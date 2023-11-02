@@ -2,8 +2,8 @@ name: OWASP Dependency-Check
 
 on:
   schedule:
-    - cron: '0 17 * * *' # Schedule for daily run at midnight Singpapore Time
-    - cron: '5 17 * * *' # Schedule for daily run at midnight Singpapore Time
+    - cron: '0 3 * * *' # Schedule for daily run at midnight Singpapore Time
+    - cron: '10 3 * * *' # Schedule for daily run at midnight Singpapore Time
 
 jobs:
   owasp-dependency-check:
@@ -16,7 +16,7 @@ jobs:
         token: ${{ secrets.GH_PAT }} 
 
     - name: Run OWASP Dependency-Check
-      if: github.event.schedule != '5 17 * * *'
+      if: github.event.schedule != '10 3 * * *' && github.ref == 'refs/heads/main'
       id: owasp-check
       run: |
         # Download and set up Dependency-Check
@@ -33,13 +33,23 @@ jobs:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
         MVNW_HOME: ./mvnw
 
+    - name: Commit Dependency Report
+      if: github.event.schedule != '10 3 * * *' && github.ref == 'refs/heads/main'
+      run: |
+        git config user.email ${{ secrets.GIT_USER_EMAIL }}
+        git config user.name "Coolbreeze151"
+        git add ${{ github.workspace }}/github-actions/dependency-check-report.json
+        git commit -m "Add Dependency-Check JSON report"
+        git push origin HEAD:main
+
     - name: Upload Dependency-Check Report
-      if: github.event.schedule != '5 17 * * *'
+      if: github.event.schedule != '10 3 * * *' && github.ref == 'refs/heads/main'
       uses: actions/upload-artifact@v3
       with:
         name: dependency-check-report
         path: ${{ github.workspace }}/github-actions/dependency-check-report.json
   
+
   commit-success:
     runs-on: ubuntu-latest
     steps:
