@@ -25,4 +25,5 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | Serverless Computing                            | No        |
 | Service Mesh                                    | No        |
 | Terminal Usage                                  | No        |
+| Version Control Systems                         | Yes       |
 | Web Server Setup                                | No        |
