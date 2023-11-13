@@ -8,8 +8,8 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | ----------------------------------------------- | --------- |
 | Application Monitoring                          | No        |
 | Artifact Management                             | No        |
-| CI/CD Tooling                                   | No        |
-| Cloud Design Patterns                           | Yes        |
+| CI/CD Tooling                                   | Yes       |
+| Cloud Design Patterns                           | Yes       |
 | Cloud Platforms (AWS, Azure, GCP)               | No        |
 | Configuration Management                        | No        |
 | Container Orchestration                         | No        |
