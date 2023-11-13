@@ -1,0 +1,116 @@
+
+include:
+  - project: "project/directory/"
+    ref: "main"
+    file:
+      - /templates/.gitlab-ci-docker-build.yml
+      - /templates/.gitlab-ci-docker-push.yml
+      - /templates/.gitlab-ci-docker-copy.yml
+      - /templates/vars/.gitlab-ci-sonatype-vars.yml
+      - /templates/.gitlab-ci-aws.yml
+      - /templates/.gitlab-ci-aquasec-trivy-scan.yml
+      - /templates/.gitlab-ci-container-signing.yml
+      - /templates/.gitlab-ci-slsa-common.yml
+      - /templates/vars/.gitlab-ci-pipeline-coe-vars.yml
+  - template: Jobs/SAST.gitlab-ci.yml
+
+stages:
+  - test # SAST Scan
+  - terraform_plan
+  - terraform_apply
+
+workflow:
+  rules: # $CI_COMMIT_BRANCH == "dev" ||
+    - if: $CI_COMMIT_BRANCH == "uat" || $CI_COMMIT_BRANCH == "prod"
+
+variables:
+  # Use CI/CD variables in your CI/CD pipeline
+  AWS_DEFAULT_REGION: "$AWS_DEFAULT_REGION"
+  # AWS_ACCESS_KEY_ID_DEV: "$AWS_ACCESS_KEY_ID_DEV"
+  # AWS_SECRET_ACCESS_KEY_DEV: "$AWS_SECRET_ACCESS_KEY_DEV"
+  # AWS_SESSION_TOKEN_DEV: "$AWS_SESSION_TOKEN_DEV"
+  AWS_ACCESS_KEY_ID_UAT: "$AWS_ACCESS_KEY_ID_UAT"
+  AWS_SECRET_ACCESS_KEY_UAT: "$AWS_SECRET_ACCESS_KEY_UAT"
+  AWS_SESSION_TOKEN_UAT: "$AWS_SESSION_TOKEN_UAT"
+  AWS_ACCESS_KEY_ID_PROD: "$AWS_ACCESS_KEY_ID_PROD"
+  AWS_SECRET_ACCESS_KEY_PROD: "$AWS_SECRET_ACCESS_KEY_PROD"
+  AWS_SESSION_TOKEN_PROD: "$AWS_SESSION_TOKEN_PROD"
+
+terraform_plan:
+  stage: terraform_plan
+  image: hashicorp/terraform:latest
+  # Set variables based on branch name using rules
+  rules:
+    # - if: $CI_COMMIT_BRANCH == "dev"
+    #   variables:
+    #     AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID_DEV"
+    #     AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY_DEV"
+    #     AWS_SESSION_TOKEN: "$AWS_SESSION_TOKEN_DEV"
+    #     ENV: "dev"
+
+    - if: $CI_COMMIT_BRANCH == "uat"
+      variables:
+        AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID_UAT"
+        AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY_UAT"
+        AWS_SESSION_TOKEN: "$AWS_SESSION_TOKEN_UAT"
+        ENV: "uat"
+
+    - if: $CI_COMMIT_BRANCH == "prod"
+      variables:
+        AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID_PROD"
+        AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY_PROD"
+        AWS_SESSION_TOKEN: "$AWS_SESSION_TOKEN_PROD"
+        ENV: "prod"
+  script:
+    # Set AWS environment variables
+    - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+    - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+    - export AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
+    - export AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN
+    # Initialize Terraform
+    - terraform init -reconfigure -backend-config=${ENV}/${ENV}-backend-config.tfvars -var-file=${ENV}/${ENV}.tfvars
+    # Create the Terraform plan
+    - terraform plan -var-file=${ENV}/${ENV}.tfvars -out=tfplan
+    # Display the Terraform plan details using terraform show
+    - terraform show -json tfplan > terraform_plan.json
+  artifacts:
+    paths:
+      - tfplan
+      - terraform_plan.json
+    expire_in: 1 week  # Set the expiration time, e.g., 1 week
+
+terraform_apply:
+  stage: terraform_apply
+  image: hashicorp/terraform:latest
+  rules:
+    # - if: $CI_COMMIT_BRANCH == "dev"
+    #   variables:
+    #     AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID_DEV"
+    #     AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY_DEV"
+    #     AWS_SESSION_TOKEN: "$AWS_SESSION_TOKEN_DEV"
+    #     ENV: "dev"
+
+    - if: $CI_COMMIT_BRANCH == "uat"
+      variables:
+        AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID_UAT"
+        AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY_UAT"
+        AWS_SESSION_TOKEN: "$AWS_SESSION_TOKEN_UAT"
+        ENV: "uat"
+
+    - if: $CI_COMMIT_BRANCH == "prod"
+      variables:
+        AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID_PROD"
+        AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY_PROD"
+        AWS_SESSION_TOKEN: "$AWS_SESSION_TOKEN_PROD"
+        ENV: "prod"
+  needs: [terraform_plan]
+  script:
+    - terraform init -reconfigure -backend-config=${ENV}/${ENV}-backend-config.tfvars -var-file=${ENV}/${ENV}.tfvars
+    # Use the tfplan.json from the previous stage for apply
+    - terraform apply -input=false tfplan
+  # Add dependencies to ensure plan is executed before apply
+  dependencies:
+    - terraform_plan
+  when: manual
+  allow_failure: false
+
