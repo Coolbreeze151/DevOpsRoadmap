@@ -8,8 +8,8 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | ----------------------------------------------- | --------- |
 | Application Monitoring                          | No        |
 | Artifact Management                             | No        |
-| CI/CD Tooling                                   | Yes       |
-| Cloud Design Patterns                           | Yes       |
+| [CI/CD Tooling](/DevOpsRoadmap/CICD-Tooling/readme.md)                                   | Yes       |
+| [Cloud Design Patterns](/DevOpsRoadmap/Cloud-Design-Patterns/readme.md)                           | Yes       |
 | Cloud Platforms (AWS, Azure, GCP)               | No        |
 | Configuration Management                        | No        |
 | Container Orchestration                         | No        |
@@ -25,5 +25,5 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | Serverless Computing                            | No        |
 | Service Mesh                                    | No        |
 | Terminal Usage                                  | No        |
-| Version Control Systems                         | Yes       |
+| [Version Control Systems](/DevOpsRoadmap/Version-Control-Systems/readme.md)                         | Yes       |
 | Web Server Setup                                | No        |
