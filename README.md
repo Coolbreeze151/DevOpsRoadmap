@@ -10,7 +10,7 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | Artifact Management                             | No        |
 | [CI/CD Tooling](CICD-Tooling/readme.md)                                   | Yes       |
 | [Cloud Design Patterns](Cloud-Design-Patterns/readme.md)                           | Yes       |
-| Cloud Platforms (AWS, Azure, GCP)               | No        |
+| [Cloud Platforms (AWS, Azure, GCP)](Cloud-Platforms/readme.md)               | Yes        |
 | Configuration Management                        | No        |
 | Container Orchestration                         | No        |
 | Containerization (Docker, Kubernetes)           | No        |
