@@ -19,7 +19,7 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | Infrastructure as Code Provisioning             | No        |
 | Logs Management                                 | No        |
 | Networking, Security and Protocols              | No        |
-| Operating Systems                               | No        |
+| [Operating Systems](Operating-Systems/readme.md)                               | No        |
 | Programming Languages                           | No        |
 | Secret Management                               | No        |
 | Serverless Computing                            | No        |
