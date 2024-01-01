@@ -13,7 +13,7 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | [Cloud Platforms (AWS, Azure, GCP)](Cloud-Platforms/readme.md)               | Yes        |
 | Configuration Management                        | No        |
 | Container Orchestration (Kubernetes, ECS, Fargate)                         | No        |
-| [Containerization (Docker)](Containerization/readme.md)           | No        |
+| [Containerization (Docker)](Containerization/readme.md)           | Yes        |
 | GitOps                                          | No        |
 | Infrastructure Monitoring                       | No        |
 | Infrastructure as Code Provisioning             | No        |
