@@ -12,8 +12,8 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | [Cloud Design Patterns](Cloud-Design-Patterns/readme.md)                           | Yes       |
 | [Cloud Platforms (AWS, Azure, GCP)](Cloud-Platforms/readme.md)               | Yes        |
 | Configuration Management                        | No        |
-| Container Orchestration                         | No        |
-| Containerization (Docker, Kubernetes)           | No        |
+| Container Orchestration (Kubernetes, ECS, Fargate)                         | No        |
+| [Containerization (Docker)](Containerization/readme.md)           | No        |
 | GitOps                                          | No        |
 | Infrastructure Monitoring                       | No        |
 | Infrastructure as Code Provisioning             | No        |
