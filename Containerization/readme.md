@@ -287,7 +287,18 @@ This is just the beginning of your Docker adventure! As you progress, you'll unc
    - Application errors: Inspect logs, debug code within containers, and utilize debugging tools.
    - Performance bottlenecks: Identify resource-intensive processes, optimize code, and adjust resource allocation.
 
+## Resources and References
 
+**Dive deeper into the world of Docker with these valuable resources:**
+
+**Official Docker Documentation:**
+
+- **Get the definitive guide:** https://docs.docker.com/
+- **Interactive tutorials:** https://docs.docker.com/get-started/
+
+**Online Courses and Tutorials:**
+
+- **Docker Hub Learning Center:** https://training.docker.com/
 
 
 
