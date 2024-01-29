@@ -9,6 +9,6 @@
 ### Powershell
 ### [Vim Editor](vim-editor/readme.md)
 ### [Process Monitoring](process-monitoring/readme.md)
-### Performance Monitoring
+### [Performance Monitoring](performance-monitoring/readme.md)
 ### Networking Tools
 ### Text Manipulation
