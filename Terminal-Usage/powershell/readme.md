@@ -1,4 +1,6 @@
-## PowerShell: Your Comprehensive Guide to Scripting and Automation
+### [Back to Terminal Usage](../README.md)
+
+## PowerShell Comprehensive Guide
 
 **Ready to unleash the power of PowerShell?** This versatile scripting language, designed for managing Windows and beyond, empowers you to automate tasks, simplify administration, and become a productivity powerhouse. This meticulously crafted readme serves as your launchpad, providing a comprehensive overview of essential features, resources, and practical examples to propel you on your scripting journey, regardless of your experience level.
 
