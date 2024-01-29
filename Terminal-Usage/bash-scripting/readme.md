@@ -1,3 +1,5 @@
+### [Back to Terminal Usage](../readme.md)
+
 # Bash Scripting
 
 ## Introduction
