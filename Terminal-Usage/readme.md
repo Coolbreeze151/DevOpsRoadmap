@@ -1,11 +1,12 @@
+### [Back Home](../README.md)
 # Learn to Live in a Terminal
 
-### [What is CLI?](https://en.wikipedia.org/wiki/Command-line_interface)
+### What is [CLI?](https://en.wikipedia.org/wiki/Command-line_interface)
 
-### Bash Scripting
+### [Bash Scripting](bash-scripting/readme.md)
 ### Powershell
-### Vim Editor
-### Process Monitoring
+### [Vim Editor](vim-editor/readme.md)
+### [Process Monitoring](process-monitoring/readme.md)
 ### Performance Monitoring
 ### Networking Tools
 ### Text Manipulation
