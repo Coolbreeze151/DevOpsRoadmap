@@ -1,3 +1,5 @@
+### [Back to Terminal Usage](../readme.md)
+
  # Text Manipulation for Terminal Usage
 
 This README will provide an overview of common text manipulation commands used in the terminal, with reference to the DevOps roadmap by Roadmap.sh (<https://roadmap.sh/devops>). These skills are essential for efficiently handling and processing text data, which is a crucial aspect of various system administration tasks.
