@@ -6,7 +6,7 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 
 | Topic                                                           | Completed |
 | --------------------------------------------------------------- | --------- |
-| Application Monitoring                                          | No        |
+| [Application Monitoring](Application-Monitoring/readme.md)      | Yes       |
 | Artifact Management                                             | No        |
 | [CI/CD Tooling](CICD-Tooling/readme.md)                         | Yes       |
 | [Cloud Design Patterns](Cloud-Design-Patterns/readme.md)        | Yes       |
