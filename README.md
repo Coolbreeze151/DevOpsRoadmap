@@ -24,6 +24,6 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | Secret Management                               | No        |
 | Serverless Computing                            | No        |
 | Service Mesh                                    | No        |
-| [Terminal Usage](Terminal-Usage/readme.md)                                  | No        |
+| [Terminal Usage](Terminal-Usage/readme.md)                                  | Yes        |
 | [Version Control Systems](Version-Control-Systems/readme.md)                         | Yes       |
 | Web Server Setup                                | No        |
