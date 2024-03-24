@@ -14,11 +14,11 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | Configuration Management                                        | No        |
 | Container Orchestration (Kubernetes, ECS, Fargate)              | No        |
 | [Containerization (Docker)](Containerization/readme.md)         | Yes       |
-| GitOps                                                          | No        |
+| [GitOps](GitOps/readme.md)                                      | Yes       |
 | Infrastructure Monitoring                                       | No        |
 | Infrastructure as Code Provisioning                             | No        |
 | Logs Management                                                 | No        |
-| Networking, Security and Protocols                              | No        |
+| [Networking, Security and Protocols](Networking-Security-and-Protocols/readme.md)                            | Yes       |
 | [Operating Systems](Operating-Systems/readme.md)                | Yes       |
 | Programming Languages                                           | No        |
 | Secret Management                                               | No        |

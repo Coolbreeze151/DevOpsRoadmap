@@ -1,3 +1,4 @@
+### [Back to Networking Security and Protocols](../readme.md)
 ## HTTPS (Hypertext Transfer Protocol Secure)
 HTTPS (Hypertext Transfer Protocol Secure) is the secure version of HTTP, the protocol over which data is sent between a web server and a web browser. HTTPS encrypts all communication between the server and the browser, preventing eavesdropping, tampering, and message forgery.
 
