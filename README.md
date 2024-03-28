@@ -21,9 +21,8 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | [Networking, Security and Protocols](Networking-Security-and-Protocols/readme.md)                            | Yes       |
 | [Operating Systems](Operating-Systems/readme.md)                | Yes       |
 | Programming Languages                                           | No        |
-| Secret Management                                               | No        |
 | [Serverless Computing](Serverless-Computing/readme.md)                                            | No        |
-| Service Mesh                                                    | No        |
+| [Service Mesh](Service-Mesh/readme.md)                                                    | Yes        |
 | [Terminal Usage](Terminal-Usage/readme.md)                      | Yes       |
 | [Version Control Systems](Version-Control-Systems/readme.md)    | Yes       |
 | [Web Server Setup](Web-Server-Setup/readme.md)                  | Yes       |
