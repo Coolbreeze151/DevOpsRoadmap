@@ -22,7 +22,7 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | [Operating Systems](Operating-Systems/readme.md)                | Yes       |
 | Programming Languages                                           | No        |
 | Secret Management                                               | No        |
-| Serverless Computing                                            | No        |
+| [Serverless Computing](Serverless-Computing/readme.md)                                            | No        |
 | Service Mesh                                                    | No        |
 | [Terminal Usage](Terminal-Usage/readme.md)                      | Yes       |
 | [Version Control Systems](Version-Control-Systems/readme.md)    | Yes       |
