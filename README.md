@@ -18,11 +18,11 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | Infrastructure Monitoring                                       | No        |
 | Infrastructure as Code Provisioning                             | No        |
 | Logs Management                                                 | No        |
-| [Networking, Security and Protocols](Networking-Security-and-Protocols/readme.md)                            | Yes       |
+| [Networking, Security and Protocols](Networking-Security-and-Protocols/readme.md)     | Yes       |
 | [Operating Systems](Operating-Systems/readme.md)                | Yes       |
 | Programming Languages                                           | No        |
-| [Serverless Computing](Serverless-Computing/readme.md)                                            | Yes        |
-| [Service Mesh](Service-Mesh/readme.md)                                                    | Yes        |
+| [Serverless Computing](Serverless-Computing/readme.md)          | Yes        |
+| [Service Mesh](Service-Mesh/readme.md)                          | Yes        |
 | [Terminal Usage](Terminal-Usage/readme.md)                      | Yes       |
 | [Version Control Systems](Version-Control-Systems/readme.md)    | Yes       |
 | [Web Server Setup](Web-Server-Setup/readme.md)                  | Yes       |
