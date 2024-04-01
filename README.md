@@ -20,7 +20,7 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | Logs Management                                                                     | No        |
 | [Networking, Security and Protocols](Networking-Security-and-Protocols/readme.md)   | Yes       |
 | [Operating Systems](Operating-Systems/readme.md)                                    | Yes       |
-| Programming Languages                                                               | No        |
+| [Programming Languages](Programming-Languages/readme.md)                            | Yes       |
 | [Serverless Computing](Serverless-Computing/readme.md)                              | Yes       |
 | [Service Mesh](Service-Mesh/readme.md)                                              | Yes       |
 | [Terminal Usage](Terminal-Usage/readme.md)                                          | Yes       |
