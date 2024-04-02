@@ -12,7 +12,7 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | [Cloud Design Patterns](Cloud-Design-Patterns/readme.md)                              | Yes       |
 | [Cloud Platforms (AWS, Azure, GCP)](Cloud-Platforms/readme.md)                        | Yes       |
 | [Configuration Management](Configuration-Management/readme.md)                        | No        |
-| Container Orchestration (Kubernetes, ECS, Fargate)                                    | No        |
+| [Container Orchestration ](Container-Orchestration/readme.md)                         | Yes       |
 | [Containerization (Docker)](Containerization/readme.md)                               | Yes       |
 | [GitOps](GitOps/readme.md)                                                            | Yes       |
 | [Infrastructure Monitoring](Infrastructure-Monitoring/readme.md)                      | Yes       |
