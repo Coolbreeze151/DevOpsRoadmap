@@ -15,7 +15,7 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | Container Orchestration (Kubernetes, ECS, Fargate)                                    | No        |
 | [Containerization (Docker)](Containerization/readme.md)                               | Yes       |
 | [GitOps](GitOps/readme.md)                                                            | Yes       |
-| Infrastructure Monitoring                                                             | No        |
+| [Infrastructure Monitoring](Infrastructure-Monitoring/readme.md)                      | Yes       |
 | [Infrastructure as Code Provisioning](Infrastructure-As-Code-Provisioning/readme.md)  | Yes       |
 | Logs Management                                                                       | No        |
 | [Networking, Security and Protocols](Networking-Security-and-Protocols/readme.md)     | Yes       |
