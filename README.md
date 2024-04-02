@@ -11,13 +11,13 @@ Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 | [CI/CD Tooling](CICD-Tooling/readme.md)                                               | Yes       |
 | [Cloud Design Patterns](Cloud-Design-Patterns/readme.md)                              | Yes       |
 | [Cloud Platforms (AWS, Azure, GCP)](Cloud-Platforms/readme.md)                        | Yes       |
-| [Configuration Management](Configuration-Management/readme.md)                        | No        |
+| [Configuration Management](Configuration-Management/readme.md)                        | Yes       |
 | [Container Orchestration ](Container-Orchestration/readme.md)                         | Yes       |
 | [Containerization (Docker)](Containerization/readme.md)                               | Yes       |
 | [GitOps](GitOps/readme.md)                                                            | Yes       |
 | [Infrastructure Monitoring](Infrastructure-Monitoring/readme.md)                      | Yes       |
 | [Infrastructure as Code Provisioning](Infrastructure-As-Code-Provisioning/readme.md)  | Yes       |
-| Logs Management                                                                       | No        |
+| [Logs Management](Logs-Management/readme.md)                                          | Yes       |
 | [Networking, Security and Protocols](Networking-Security-and-Protocols/readme.md)     | Yes       |
 | [Operating Systems](Operating-Systems/readme.md)                                      | Yes       |
 | [Programming Languages](Programming-Languages/readme.md)                              | Yes       |
