@@ -1,28 +1,30 @@
 # DevOpsRoadmap
 
+<img src="img/logo.png" width="400" height="400">
+
 Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 
 ## Progress Tracker
 
-| Topic                                                                                 | Completed |
-| ------------------------------------------------------------------------------------- | --------- |
-| [Application Monitoring](Application-Monitoring/readme.md)                            | Yes       |
-| [Artifact Management](Artifact-Management/readme.md)                                  | Yes       |
-| [CI/CD Tooling](CICD-Tooling/readme.md)                                               | Yes       |
-| [Cloud Design Patterns](Cloud-Design-Patterns/readme.md)                              | Yes       |
-| [Cloud Platforms (AWS, Azure, GCP)](Cloud-Platforms/readme.md)                        | Yes       |
-| [Configuration Management](Configuration-Management/readme.md)                        | Yes       |
-| [Container Orchestration ](Container-Orchestration/readme.md)                         | Yes       |
-| [Containerization (Docker)](Containerization/readme.md)                               | Yes       |
-| [GitOps](GitOps/readme.md)                                                            | Yes       |
-| [Infrastructure Monitoring](Infrastructure-Monitoring/readme.md)                      | Yes       |
-| [Infrastructure as Code Provisioning](Infrastructure-As-Code-Provisioning/readme.md)  | Yes       |
-| [Logs Management](Logs-Management/readme.md)                                          | Yes       |
-| [Networking, Security and Protocols](Networking-Security-and-Protocols/readme.md)     | Yes       |
-| [Operating Systems](Operating-Systems/readme.md)                                      | Yes       |
-| [Programming Languages](Programming-Languages/readme.md)                              | Yes       |
-| [Serverless Computing](Serverless-Computing/readme.md)                                | Yes       |
-| [Service Mesh](Service-Mesh/readme.md)                                                | Yes       |
-| [Terminal Usage](Terminal-Usage/readme.md)                                            | Yes       |
-| [Version Control Systems](Version-Control-Systems/readme.md)                          | Yes       |
-| [Web Server Setup](Web-Server-Setup/readme.md)                                        | Yes       |
+| Topic                                                                                               | Completed |
+| --------------------------------------------------------------------------------------------------- | --------- |
+| [Application Monitoring](DevOpsRoadmap/Application-Monitoring/readme.md)                            | Yes       |
+| [Artifact Management](DevOpsRoadmap/Artifact-Management/readme.md)                                  | Yes       |
+| [CI/CD Tooling](DevOpsRoadmap/CICD-Tooling/readme.md)                                               | Yes       |
+| [Cloud Design Patterns](DevOpsRoadmap/Cloud-Design-Patterns/readme.md)                              | Yes       |
+| [Cloud Platforms (AWS, Azure, GCP)](DevOpsRoadmap/Cloud-Platforms/readme.md)                        | Yes       |
+| [Configuration Management](DevOpsRoadmap/Configuration-Management/readme.md)                        | Yes       |
+| [Container Orchestration ](DevOpsRoadmap/Container-Orchestration/readme.md)                         | Yes       |
+| [Containerization (Docker)](DevOpsRoadmap/Containerization/readme.md)                               | Yes       |
+| [GitOps](DevOpsRoadmap/GitOps/readme.md)                                                            | Yes       |
+| [Infrastructure Monitoring](DevOpsRoadmap/Infrastructure-Monitoring/readme.md)                      | Yes       |
+| [Infrastructure as Code Provisioning](DevOpsRoadmap/Infrastructure-As-Code-Provisioning/readme.md)  | Yes       |
+| [Logs Management](DevOpsRoadmap/Logs-Management/readme.md)                                          | Yes       |
+| [Networking, Security and Protocols](DevOpsRoadmap/Networking-Security-and-Protocols/readme.md)     | Yes       |
+| [Operating Systems](DevOpsRoadmap/Operating-Systems/readme.md)                                      | Yes       |
+| [Programming Languages](DevOpsRoadmap/Programming-Languages/readme.md)                              | Yes       |
+| [Serverless Computing](DevOpsRoadmap/Serverless-Computing/readme.md)                                | Yes       |
+| [Service Mesh](DevOpsRoadmap/Service-Mesh/readme.md)                                                | Yes       |
+| [Terminal Usage](DevOpsRoadmap/Terminal-Usage/readme.md)                                            | Yes       |
+| [Version Control Systems](DevOpsRoadmap/Version-Control-Systems/readme.md)                          | Yes       |
+| [Web Server Setup](DevOpsRoadmap/Web-Server-Setup/readme.md)                                        | Yes       |
