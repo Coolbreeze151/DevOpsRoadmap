@@ -15,13 +15,13 @@ jobs:
         token: ${{ secrets.GH_PAT }} 
 
     - name: Create SUCCESS.txt
-      run: echo "SUCCESS" >> ${{ github.workspace }}/CICD-Tooling/github-actions/SUCCESS.txt
+      run: echo "SUCCESS" >> ${{ github.workspace }}/DevOpsRoadmap/CICD-Tooling/github-actions/SUCCESS.txt
 
     - name: Commit SUCCESS Status
       run: |
         git config user.email ${{ secrets.GIT_USER_EMAIL }}
         git config user.name "Coolbreeze151"
-        git add ${{ github.workspace }}/CICD-Tooling/github-actions/SUCCESS.txt
+        git add ${{ github.workspace }}/DevOpsRoadmap/CICD-Tooling/github-actions/SUCCESS.txt
         git commit -m "Add Dependency-Check JSON report"
         git push origin HEAD:main
 
