@@ -1,5 +1,7 @@
 # DevOpsRoadmap
 
+![Image of Banner](img/logo.png)
+
 Learning from the [DevOps Roadmap](https://roadmap.sh/devops).
 
 ## Progress Tracker
