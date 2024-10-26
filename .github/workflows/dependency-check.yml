@@ -37,13 +37,6 @@ jobs:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
         MVNW_HOME: ./mvnw
 
-    - name: Stash Local Changes
-      if: github.ref == 'refs/heads/main'
-      run: |
-        git config user.email ${{ secrets.GIT_USER_EMAIL }}
-        git config user.name "Coolbreeze151"
-        git stash
-
     - name: Commit Dependency Report
       if: github.ref == 'refs/heads/main'
       run: |
