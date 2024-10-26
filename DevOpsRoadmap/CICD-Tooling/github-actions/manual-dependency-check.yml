@@ -1,4 +1,4 @@
-name: OWASP Dependency-Check
+name: Manual OWASP Dependency-Check
 on:
   push:
     branches:
