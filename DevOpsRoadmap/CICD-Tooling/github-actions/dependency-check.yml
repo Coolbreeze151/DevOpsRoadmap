@@ -2,6 +2,9 @@ name: OWASP Dependency-Check
 on:
   schedule:
     - cron: '0 16 */2 * *' # Schedule for bi-daily run at midnight Singapore Time
+  push:
+    branches:
+      - main
 
 jobs:
   owasp-dependency-check:
