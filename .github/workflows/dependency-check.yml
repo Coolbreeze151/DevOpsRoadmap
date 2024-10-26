@@ -1,6 +1,8 @@
 name: OWASP Dependency-Check
-
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 16 */2 * *' # Schedule for bi-daily run at midnight Singapore Time
 
@@ -35,11 +37,16 @@ jobs:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
         MVNW_HOME: ./mvnw
 
-    - name: Commit Dependency Report
+    - name: Stash Local Changes
       if: github.ref == 'refs/heads/main'
       run: |
         git config user.email ${{ secrets.GIT_USER_EMAIL }}
         git config user.name "Coolbreeze151"
+        git stash
+
+    - name: Commit Dependency Report
+      if: github.ref == 'refs/heads/main'
+      run: |
         git pull
         git add ${{ github.workspace }}/CICD-Tooling/github-actions/dependency-check-report.json
         git commit -m "Add Dependency-Check JSON report"
