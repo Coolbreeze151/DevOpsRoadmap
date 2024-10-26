@@ -40,7 +40,8 @@ jobs:
     - name: Commit Dependency Report
       if: github.ref == 'refs/heads/main'
       run: |
-        git pull
+        git config user.email ${{ secrets.GIT_USER_EMAIL }}
+        git config user.name "Coolbreeze151"
         git add ${{ github.workspace }}/CICD-Tooling/github-actions/dependency-check-report.json
         git commit -m "Add Dependency-Check JSON report"
         git push origin HEAD:main
