@@ -2,6 +2,9 @@ name: OWASP Dependency-Check
 on:
   schedule:
     - cron: '0 16 */2 * *' # Schedule for bi-daily run at midnight Singapore Time
+  push:
+    branches:
+      - main
 
 jobs:
   owasp-dependency-check:
@@ -29,7 +32,7 @@ jobs:
         mkdir -p ${{ github.workspace }}/CICD-Tooling/github-actions
 
         # Move the JSON report to the 'github-actions' folder
-        mv -f /tmp/dependency-check-report.json ${{ github.workspace }}/CICD-Tooling/github-actions/dependency-check-report.json
+        mv -f /tmp/dependency-check-report.json ${{ github.workspace }}/CICD-Tooling/github-actions/
       env:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
         MVNW_HOME: ./mvnw
