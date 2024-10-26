@@ -1,5 +1,4 @@
 name: OWASP Dependency-Check
-
 on:
   schedule:
     - cron: '0 16 */2 * *' # Schedule for bi-daily run at midnight Singapore Time
@@ -26,6 +25,9 @@ jobs:
         # Run Dependency-Check and capture the JSON output to a file
         ./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan . --out /tmp --format JSON
 
+        # Create the directory if it doesn't exist
+        mkdir -p ${{ github.workspace }}/CICD-Tooling/github-actions
+
         # Move the JSON report to the 'github-actions' folder
         mv -f /tmp/dependency-check-report.json ${{ github.workspace }}/CICD-Tooling/github-actions/dependency-check-report.json
       env:
@@ -48,4 +50,3 @@ jobs:
       with:
         name: dependency-check-report
         path: ${{ github.workspace }}/CICD-Tooling/github-actions/dependency-check-report.json
-  
