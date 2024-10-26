@@ -26,8 +26,11 @@ jobs:
         # Run Dependency-Check and capture the JSON output to a file
         ./dependency-check/bin/dependency-check.sh --project "Dependency Check Example" --scan . --out /tmp --format JSON
 
+        # Create the directory if it doesn't exist
+        mkdir -p ${{ github.workspace }}/CICD-Tooling/github-actions
+
         # Move the JSON report to the 'github-actions' folder
-        mv -f /tmp/dependency-check-report.json ${{ github.workspace }}/CICD-Tooling/github-actions/dependency-check-report.json
+        mv -f /tmp/dependency-check-report.json ${{ github.workspace }}/CICD-Tooling/github-actions/
       env:
         MAVEN_OPTS: -Dmaven.repo.local=${{ runner.workspace }}/.m2/repository
         MVNW_HOME: ./mvnw
@@ -38,7 +41,7 @@ jobs:
         git config user.email ${{ secrets.GIT_USER_EMAIL }}
         git config user.name "Coolbreeze151"
         git pull
-        git add ${{ github.workspace }}/DevOpsRoadmap/CICD-Tooling/github-actions/dependency-check-report.json
+        git add ${{ github.workspace }}/CICD-Tooling/github-actions/dependency-check-report.json
         git commit -m "Add Dependency-Check JSON report"
         git push origin HEAD:main
 
@@ -47,5 +50,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: dependency-check-report
-        path: ${{ github.workspace }}/DevOpsRoadmap/CICD-Tooling/github-actions/dependency-check-report.json
-  
+        path: ${{ github.workspace }}/CICD-Tooling/github-actions/dependency-check-report.json
